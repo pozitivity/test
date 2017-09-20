@@ -1,0 +1,44 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config dev.config.js --progress --profile --colors",
+    "build-war": "npm i && webpack --config dev.config.js --progress --profile --colors && grunt remove && grunt war",
+    "dev-server": "webpack  --config dev.config.js --watch --progress && webpack-dev-server --config dev.config.js  --inline --hot --port 8090 --colors --content-base build/ "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.3",
+    "angular": "^1.6.6",
+    "angular-ui-bootstrap": "^2.5.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "sass-loader": "^3.1.2 ",
+    "node-sass": "4.5.0",
+    "url-loader": "^0.5.7",
+    "exports-loader": "latest",
+    "file-loader": "latest",
+    "html-loader": "^0.4.0",
+    "json-loader": "latest",
+    "html-webpack-plugin": "^2.7.2",
+    "imports-loader": "latest",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.8.0",
+    "less": "^2.6.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack": "^1.12.12"
+  }
+}
