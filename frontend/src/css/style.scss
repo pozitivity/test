@@ -1,4 +1,16 @@
+body {
+  background-color: #efefef;
+}
+
+.header {
+  text-align: center;
+}
+
 .form-group {
+
+  line-height: 35px;
+  padding-top: 10px;
+
   .dropdown-toggle {
     margin-left: -5px;
     border-left: none;
@@ -11,6 +23,11 @@
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
   }
+
+  .control-label {
+    float: left;
+    padding-right: 15px;
+  }
 }
 
 .table {
@@ -18,4 +35,15 @@
     width: 15px;
     height: 15px;
   }
+}
+
+.chart_right, .chart_left {
+  padding-top: 15px;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 48% !important;
+  background-color: #fff;
 }

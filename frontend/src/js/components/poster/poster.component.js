@@ -79,6 +79,10 @@ module.exports = (app) => {
             }
         };
 
+        ctrl.selectNoPurpose = () => {
+            ctrl.selectedIndicator = ctrl.indicators[0];
+        };
+
         ctrl.getDataForChart = () => {
             scoreService.get({ districtId: ctrl.selectedDistrict.id, indicatorId: ctrl.selectedIndicator.id }, (scores) => {
                 ctrl.scores = scores;
