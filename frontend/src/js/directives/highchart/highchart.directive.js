@@ -24,8 +24,6 @@ module.exports = (app) => {
 
         let chart;
         let prevOptions = {};
-        let mergedOptions = {};
-        let seriesId = 0;
 
         $scope.$watch(() => { return $scope.options }, (newValue) => {
             if (newValue.renderTo === "view") {
