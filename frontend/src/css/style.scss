@@ -1,0 +1,21 @@
+.form-group {
+  .dropdown-toggle {
+    margin-left: -5px;
+    border-left: none;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+
+  .before-dropdown-toggle {
+    border-right: none;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
+
+.table {
+  .small_square {
+    width: 15px;
+    height: 15px;
+  }
+}

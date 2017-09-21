@@ -14,8 +14,10 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.3",
     "angular": "^1.6.6",
+    "angular-resource": "^1.6.6",
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
+    "highcharts": "^5.0.14",
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.4"

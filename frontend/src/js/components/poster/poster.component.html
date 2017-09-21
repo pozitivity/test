@@ -1,1 +1,132 @@
-POSTER
+<div>
+    <div class="header">
+        <h3>Индекс здоровья населения</h3>
+    </div>
+    <uib-tabset active="active">
+        <uib-tab heading="Цели ИЗН" select="$ctrl.isSelectPurpose = true">
+            <div class="form-inline">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-3">Округ</label>
+                    <div class="col-sm-9" uib-dropdown on-toggle="toggled(open)">
+                        <button ng-if="$ctrl.selectedDistrict" id="one-split-district-button" type="button" class="btn btn-success before-dropdown-toggle">{{ $ctrl.selectedDistrict.name }}</button>
+                        <button type="button" class="btn btn-success" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="district in $ctrl.districts">
+                                <a href ng-click="$ctrl.selectDistrict(district)">{{district.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-3">Цель</label>
+                    <div class="col-sm-9" uib-dropdown on-toggle="toggled(open)">
+                        <button ng-if="$ctrl.selectedIndicator" id="one-split-indicator-button" type="button" class="btn btn-success before-dropdown-toggle">{{ $ctrl.selectedIndicator.name }}</button>
+                        <button type="button" class="btn btn-success up" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="indicator in $ctrl.purposeIndicators">
+                                <a href ng-click="$ctrl.selectIndicator(indicator)">{{indicator.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-7">Тип графика</label>
+                    <div class="col-sm-5" uib-dropdown on-toggle="toggled(open)">
+                        <button id="one-split-typeChart-button" type="button" class="btn btn-success before-dropdown-toggle">{{ $ctrl.selectedChartType }}</button>
+                        <button type="button" class="btn btn-success" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="chartType in $ctrl.chartTypes">
+                                <a href ng-click="$ctrl.selectChartType(chartType)">{{chartType}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <div class="btn btn-success" ng-click="$ctrl.addSeries()">Добавить к сравнению</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <highchart ng-if="$ctrl.viewOptions.chart.series.length > 0" options="$ctrl.viewOptions">
+                    <div id="view"></div>
+                </highchart>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-8">
+                    <highchart ng-if="$ctrl.compareOptions.chart.series.length > 0" options="$ctrl.compareOptions">
+                        <div id="compare"></div>
+                    </highchart>
+                </div>
+                <div class="col-sm-4">
+                    <table class="table">
+                        <tbody>
+                        <tr ng-repeat="chart in $ctrl.compareOptions.chart.series">
+                            <td><div class="small_square" ng-style="{ 'background-color': chart.color }"></div></td>
+                            <td><div class="legend">{{ chart.name }}</div></td>
+                            <td><button class="btn btn-sm btn-danger" ng-click="$ctrl.deleteSeries(chart.uuid)">Удалить</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </divclass>
+        </uib-tab>
+        <uib-tab heading="Показатели ИЗН" select="$ctrl.selectNoPurpose()">
+            <div class="form-inline">
+                <div class="form-group">
+                    <div uib-dropdown on-toggle="toggled(open)">
+                        <button ng-if="$ctrl.selectedDistrict" id="two-split-district-button" type="button" class="btn btn-success">{{ $ctrl.selectedDistrict.name }}</button>
+                        <button type="button" class="btn btn-success" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="district in $ctrl.districts">
+                                <a href ng-click="$ctrl.selectDistrict(district)">{{district.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div uib-dropdown on-toggle="toggled(open)">
+                        <button ng-if="$ctrl.selectedIndicator" id="two-split-indicator-button" type="button" class="btn btn-success">{{ $ctrl.selectedIndicator.name }}</button>
+                        <button type="button" class="btn btn-success" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="indicator in $ctrl.indicators">
+                                <a href ng-click="$ctrl.selectIndicator(indicator)">{{indicator.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Тип графика</label>
+                    <div uib-dropdown on-toggle="toggled(open)">
+                        <button id="two-split-typeChart-button" type="button" class="btn btn-success">{{ $ctrl.selectedChartType }}</button>
+                        <button type="button" class="btn btn-success" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="chartType in $ctrl.chartTypes">
+                                <a href ng-click="$ctrl.selectChartType(chartType)">{{chartType}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn btn-success" ng-click="$ctrl.addSeries()">Добавить к сравнению</div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
