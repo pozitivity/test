@@ -3,7 +3,7 @@ import 'lodash';
 require('angular');
 
 require('bootstrap');
-require('angular-ui-router');
+require('@uirouter/angularjs');
 require('angular-ui-bootstrap');
 require('angular-resource');
 

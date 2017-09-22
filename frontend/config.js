@@ -55,7 +55,7 @@ module.exports = function (config) {
         main: './src/js/app.js',
         vendor: [
             'angular',
-            'angular-ui-router',
+            '@uirouter/angularjs',
             'bootstrap',
             'jquery'
         ]
